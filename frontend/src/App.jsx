@@ -6,14 +6,14 @@ function App() {
   const wsRef = useRef(null);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/posts")
+    axios.get("https://realtime-posts-search-app.onrender.com/api/posts")
       .then(res => setPosts(res.data))
       .catch(err => console.log(err));
   }, []);
 
   
   useEffect(() => {
-    const ws = new WebSocket("ws://localhost:5000");
+    const ws = new WebSocket("wss://realtime-posts-search-app.onrender.com");
     wsRef.current = ws;
 
     ws.onopen = () => console.log(" WS Connected");
